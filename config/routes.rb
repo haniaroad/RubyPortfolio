@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
   resources :portfolios
-  get 'pages/home'
-  get 'pages/about'
-  get 'pages/contact'
-  resources :blogs
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ 
+  get 'about', to: 'pages#about'
+  get 'contact', to: 'pages#contact'
+  
+  resources :blogs do
+    member do
+      get :togglestatus
+    end
+  end
+
+  #Setting root path to pages controller home method // Now localhost:3000 will be homepage
+  root to: 'pages#home'
+
 end
