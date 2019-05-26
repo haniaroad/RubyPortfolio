@@ -3,7 +3,12 @@ Rails.application.routes.draw do
  
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
-  resources :blogs
+  
+  resources :blogs do
+    member do
+      get :togglestatus
+    end
+  end
 
   #Setting root path to pages controller home method // Now localhost:3000 will be homepage
   root to: 'pages#home'

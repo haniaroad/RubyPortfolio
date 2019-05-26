@@ -44,7 +44,7 @@ class PortfoliosController < ApplicationController
     end
 
     def show
-        @portfolio = Portfolio.friendly.find(params[:id])
+        @portfolio = Portfolio.find(params[:id])
 
     end
 
