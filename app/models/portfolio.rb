@@ -1,5 +1,7 @@
 class Portfolio < ApplicationRecord
 
+    has_many :technologies
+    
     validates_presence_of :title, :image, :thumbimage
 
     after_initialize :set_defaults
